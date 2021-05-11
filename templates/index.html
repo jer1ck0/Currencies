@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Главная</title>
+</head>
+<body class="container">
+    <p class="link-new-course"><a href="/currency/new">Новый курс</a></p>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" value="Запрос" >
+    <div class="response">
+        <h3>Relative rate at {{ period }} between {{ first_currency }} and {{ second_currency }}</h3>
+        <h2>{{ result }}</h2>
+    </div>
+</form>
+</body>
+</html>
