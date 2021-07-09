@@ -18,9 +18,8 @@ from django.urls import path
 from rateapp import views
 
 urlpatterns = [
-    path('', views.index, name='home'),
-    path('currency/create/', views.create),
-    path('currency/new', views.new_currency, name='new currency'),
-    path('currencies', views.currencies, name='currencies'),
+    path('add/', views.add),
+    path('compare/', views.compare),
+    path('all_rates/', views.all_rates),
     path('admin/', admin.site.urls),
 ]
