@@ -18,19 +18,8 @@ class CurrencyRates():
             return result
 
     def find(currency, date):
-        query_set = Rate.objects.filter(ident=currency).order_by('time_point')
-        start_index = 0
-        end_index = len(query_set) - 1
-        while True:
-            index = int(((start_index + end_index)/2)//1)
-            if query_set[index].time_point == date:
-                return query_set[index].rate
-            elif query_set[index].time_point < date:
-                start_index = index + 1
-            else:
-                end_index = index - 1
-            if start_index > end_index:
-                return query_set[index].rate
+        return Rate.objects.filter(ident=currency, time_point__lte=date).order_by('-time_point')[0].rate
+
     
     def compare(currency1, currency2, date):
         result = CurrencyRates.find(currency1, date)/CurrencyRates.find(currency2, date)

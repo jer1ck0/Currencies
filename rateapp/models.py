@@ -5,7 +5,7 @@ import datetime
 class Rate(models.Model):
     ident = models.CharField(max_length=3)
     rate = models.IntegerField()
-    time_point = models.DateTimeField()
+    time_point = models.DateTimeField(db_index=True)
 
     # def comparing(request):
     #     rates_a = Rate.objects.filter(ident=request[0])
