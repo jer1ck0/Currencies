@@ -22,4 +22,5 @@ urlpatterns = [
     path('compare/', views.compare),
     path('all_rates/', views.all_rates),
     path('admin/', admin.site.urls),
+    path('register/', admin.site.urls),
 ]

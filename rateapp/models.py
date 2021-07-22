@@ -7,11 +7,9 @@ class Rate(models.Model):
     rate = models.IntegerField()
     time_point = models.DateTimeField(db_index=True)
 
-    # def comparing(request):
-    #     rates_a = Rate.objects.filter(ident=request[0])
-    #     rate_a = [element for element in rates_a if element.time_point - request[2] >= datetime.timedelta(0)]
-    #     a = max(rate_a, key=lambda i : i.time_point).rate
-    #     rates_b = Rate.objects.filter(ident=request[1])
-    #     rate_b = [element for element in rates_b if element.time_point - request[2] >= datetime.timedelta(0)]
-    #     b = max(rate_b, key=lambda i : i.time_point).rate
-    #     return a/b
+class User(models.Model):
+    mail = models.EmailField()
+    key = models.CharField(max_length=50, db_index=True)
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50)
+    role = models.IntegerField() #0 - denied_all, 1 - r, 2 - rw
